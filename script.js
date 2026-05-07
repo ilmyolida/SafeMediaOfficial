@@ -82,3 +82,39 @@ window.onload = () => {
     changeLang(savedLang);
     loadPosts();
 };
+function switchTab(tab) {
+    // 1. Hamma ikonkalarni "o'chirish"
+    document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+    
+    // 2. Bosilganini "yoqish"
+    const activeItem = document.querySelector(`[onclick="switchTab('${tab}')"]`);
+    if(activeItem) activeItem.classList.add('active');
+
+    // 3. Kontentni filtrlash
+    const titleElem = document.getElementById('pageTitle');
+    const container = document.getElementById('postsContainer');
+    
+    if (tab === 'home') {
+        titleElem.innerText = "Bosh sahifa";
+        loadPosts(); // Hamma postlarni chiqaradi
+    } else {
+        titleElem.innerText = tab.charAt(0).toUpperCase() + tab.slice(1);
+        loadPostsByCategory(tab); // Faqat shu kategoriyadagi postlar
+    }
+}
+
+// Kategoriyaga qarab yuklash funksiyasi
+function loadPostsByCategory(category) {
+    const container = document.getElementById('postsContainer');
+    db.collection("posts").where("category", "==", category)
+    .orderBy("date", "desc").onSnapshot((querySnapshot) => {
+        container.innerHTML = "";
+        if (querySnapshot.empty) {
+            container.innerHTML = `<p style="text-align:center; color:grey; margin-top:20px;">Hozircha bu bo'limda maqola yo'q.</p>`;
+        }
+        querySnapshot.forEach((doc) => {
+            const post = doc.data();
+            renderPost(container, post);
+        });
+    });
+}
