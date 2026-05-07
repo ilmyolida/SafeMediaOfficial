@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <title>Safe Media Admin</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body style="padding: 20px;">
+    <h2>Yangi maqola qo'shish</h2>
+    <div id="admin-form" style="display: flex; flex-direction: column; gap: 10px; max-width: 500px;">
+        <input type="text" id="postTitle" placeholder="Sarlavha">
+        <input type="text" id="postImg" placeholder="Rasm URL linki">
+        <textarea id="postContent" placeholder="Asosiy matn" rows="5"></textarea>
+        <select id="postCategory">
+            <option value="home">Home</option>
+            <option value="community">Community</option>
+            <option value="solutions">Solutions</option>
+        </select>
+        <button onclick="savePost()" style="padding: 10px; background: #007aff; color: white; border: none; cursor: pointer;">Saqlash</button>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    
+    <script>
+        // Yuqoridagi firebaseConfig kodini bu yerga ham qo'ying
+        firebase.initializeApp({
+            apiKey: "AIzaSyA-YmqflIAZgiouEScOrZQsTdZT4teek6c",
+            authDomain: "safemediaofficial-d25fa.firebaseapp.com",
+            projectId: "safemediaofficial-d25fa",
+            storageBucket: "safemediaofficial-d25fa.firebasestorage.app",
+            messagingSenderId: "769260134268",
+            appId: "1:769260134268:web:ebd92285f374fd489e8ef9"
+        });
+        const db = firebase.firestore();
+
+        function savePost() {
+            const title = document.getElementById('postTitle').value;
+            const content = document.getElementById('postContent').value;
+            const image = document.getElementById('postImg').value;
+            const category = document.getElementById('postCategory').value;
+
+            db.collection("posts").add({
+                title: title,
+                content: content,
+                image: image,
+                category: category,
+                date: firebase.firestore.FieldValue.serverTimestamp()
+            })
+            .then(() => {
+                alert("Maqola muvaffaqiyatli qo'shildi!");
+                document.getElementById('postTitle').value = "";
+                document.getElementById('postContent').value = "";
+            })
+            .catch((error) => console.error("Xato: ", error));
+        }
+    </script>
+</body>
+</html>
