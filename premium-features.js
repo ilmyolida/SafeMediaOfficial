@@ -564,9 +564,7 @@ function showSupportInfo() {
             <h3>${t.supportTitle}</h3>
             <p>${t.supportText}</p>
             <div style="background:#0f132e; padding:15px; border-radius:15px; margin:15px 0; text-align:left">
-                <p><i class="fas fa-mobile-alt"></i> ${t.paynet}:<br><strong>+996 700 123 456</strong></p>
-                <p><i class="fab fa-usdt"></i> ${t.usdt}:<br><strong>TKzQqQp... (Contact for address)</strong></p>
-                <p><i class="fab fa-google"></i> ${t.googlePay}:<br><strong>safemedia@gmail.com</strong></p>
+                <p><i class="fas fa-mobile-alt"></i> ${t.paynet}:<br><strong>+996 505940600</strong></p>
             </div>
             <button class="submit-btn" onclick="copySupportInfo()"><i class="fas fa-copy"></i> ${t.copy || 'Copy'}</button>
         </div>
@@ -574,7 +572,7 @@ function showSupportInfo() {
 }
 
 function copySupportInfo() {
-    const text = `Safe Media Support:\nPaynet: +996 700 123 456\nUSDT: Contact for address\nGoogle Pay: safemedia@gmail.com`;
+    const text = `Safe Media Support:\nPaynet: +996 505940600\nUSDT: Contact for address\nGoogle Pay: safemedia@gmail.com`;
     navigator.clipboard.writeText(text);
     alert("✅ Copied!");
     closeModal();
