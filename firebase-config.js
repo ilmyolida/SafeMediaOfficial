@@ -1,21 +1,19 @@
-// Firebase konfiguratsiyasi
-// O'ZINGIZNING FIREBASE MA'LUMOTLARINGIZNI KIRITING!
 const firebaseConfig = {
-    apiKey: "AIzaSyDEFAULT_CHANGE_THIS",  // <-- O'ZGARTIRING
-    authDomain: "your-project.firebaseapp.com",  // <-- O'ZGARTIRING
-    projectId: "your-project-id",  // <-- O'ZGARTIRING
-    storageBucket: "your-project.appspot.com",  // <-- O'ZGARTIRING
-    messagingSenderId: "123456789",  // <-- O'ZGARTIRING
-    appId: "1:123456789:web:abcdef"  // <-- O'ZGARTIRING
+  apiKey: "AIzaSyA-YmqflIAZgiouEScOrZQsTdZT4teek6c",
+  authDomain: "safemediaofficial-d25fa.firebaseapp.com",
+  projectId: "safemediaofficial-d25fa",
+  storageBucket: "safemediaofficial-d25fa.firebasestorage.app",
+  messagingSenderId: "769260134268",
+  appId: "1:769260134268:web:ebd92285f374fd489e8ef9",
+  measurementId: "G-XRNBG7X68B"
 };
 
-// Firebase ni ishga tushirish
-firebase.initializeApp(firebaseConfig);
-
-// Firestore va Auth ni olish
+// Init Firebase
+if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+}
 const db = firebase.firestore();
 const auth = firebase.auth();
 const provider = new firebase.auth.GoogleAuthProvider();
 
-// Admin email ro'yxati (o'z emailingizni yozing)
-const ADMIN_EMAILS = ["sizning_email@gmail.com"];  // <-- O'ZGARTIRING
+const ADMIN_EMAILS = ["ilmyolida@gmail.com"]; 

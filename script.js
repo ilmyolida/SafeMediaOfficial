@@ -2,7 +2,10 @@
 let currentUser = null;
 let currentPage = 'home';
 let allPosts = [];
-
+const ADMIN_EMAILS = ["ilmyolida@gmail.com"];
+const provider = new firebase.auth.GoogleAuthProvider();
+const db = firebase.firestore();
+const auth = firebase.auth();
 // ================= SIDE MENU =================
 function toggleSideMenu() {
     const drawer = document.getElementById('sideDrawer');

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Құпиялық саясаты | Safe Media</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Privacy sahifasiga oid qo'shimcha stillar */
+        .privacy-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .privacy-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .privacy-header h1 {
+            font-size: 2rem;
+            background: linear-gradient(90deg, #4facfe, #00f2fe);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 10px;
+        }
+        .privacy-header p {
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        .privacy-section {
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: 0.3s;
+        }
+        .privacy-section:hover {
+            background: rgba(255,255,255,0.08);
+            transform: translateY(-2px);
+        }
+        .privacy-section h2 {
+            color: #4facfe;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .privacy-section h2 i {
+            font-size: 1.3rem;
+        }
+        .privacy-section h3 {
+            color: #00f2fe;
+            font-size: 1.1rem;
+            margin: 15px 0 10px 0;
+        }
+        .privacy-section p, .privacy-section li {
+            color: #ddd;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        .privacy-section ul, .privacy-section ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        .privacy-section li {
+            margin-bottom: 8px;
+        }
+        .delete-box {
+            background: rgba(255,107,107,0.1);
+            border-left: 3px solid #ff6b6b;
+            padding: 15px;
+            border-radius: 15px;
+            margin: 15px 0;
+        }
+        .delete-box strong {
+            color: #ff6b6b;
+        }
+        .contact-btn {
+            display: inline-block;
+            background: linear-gradient(90deg, #4facfe, #00f2fe);
+            padding: 12px 25px;
+            border-radius: 30px;
+            color: white;
+            text-decoration: none;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+        .contact-btn:hover {
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(79,172,254,0.4);
+        }
+        .back-to-home {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .back-to-home a {
+            color: #4facfe;
+            text-decoration: none;
+        }
+        
+        /* Light mode */
+        body.light-mode .privacy-section {
+            background: rgba(0,0,0,0.03);
+        }
+        body.light-mode .privacy-section p,
+        body.light-mode .privacy-section li {
+            color: #333;
+        }
+        body.light-mode .privacy-header p {
+            color: #666;
+        }
+        body.light-mode .delete-box {
+            background: rgba(255,107,107,0.05);
+        }
+        
+        /* Reading mode */
+        body.reading-mode .privacy-section {
+            background: #fff3e0;
+        }
+        body.reading-mode .privacy-section p,
+        body.reading-mode .privacy-section li {
+            color: #3b2a1f;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="menu-icon" onclick="goBack()">
+            <i class="fas fa-arrow-left"></i>
+        </div>
+        <div class="logo">Құпиялық саясаты</div>
+        <div class="theme-icons">
+            <i class="fas fa-moon" onclick="setTheme('dark')"></i>
+            <i class="fas fa-sun" onclick="setTheme('light')"></i>
+            <i class="fas fa-book-open" onclick="setTheme('reading')"></i>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="privacy-container">
+            <div class="privacy-header">
+                <h1><i class="fas fa-shield-alt"></i> Құпиялық саясаты</h1>
+                <p>So‘nggi yangilanish: 2026-yil 8-may</p>
+                <p>Sizning maʼlumotlaringizni himoya qilish biz uchun muhim</p>
+            </div>
+
+            <!-- Sayt haqida -->
+            <div class="privacy-section">
+                <h2><i class="fas fa-info-circle"></i> Safe Media sayti haqida</h2>
+                <p><strong>Safe Media Official</strong> – bu diniy va dunyoviy tarbiya, yaxshi odatlar, shaxsiy rivojlanish va texnologiyalarni birlashtirgan platforma. Sayt quyidagi xizmatlarni taqdim etadi:</p>
+                <ul>
+                    <li>Ma'naviy va amaliy maqolalar (Nafs tarbiyasi, odatlar, Islomiy maslahatlar)</li>
+                    <li>Habit Tracker Pro ilovasi bilan integratsiya</li>
+                    <li>Jamiyat uchun foydali testlar va interaktiv vositalar</li>
+                    <li>Foydalanuvchilar uchun Google orqali kirish tizimi</li>
+                </ul>
+                <p>Sayt <strong>.com domeni</strong> ostida xalqaro miqyosda ishlaydi va GitHub Pages + Firebase texnologiyalarida qurilgan.</p>
+            </div>
+
+            <!-- Qanday ma'lumotlar yig'iladi -->
+            <div class="privacy-section">
+                <h2><i class="fas fa-database"></i> Qanday maʼlumotlar yigʻiladi?</h2>
+                <p>Safe Media quyidagi maʼlumotlarni toʻplashi mumkin:</p>
+                <ul>
+                    <li><strong>Google akkaunt maʼlumotlari:</strong> Ism, email manzili va profil rasmingiz (faqat siz Google orqali kirganingizda).</li>
+                    <li><strong>Foydalanish maʼlumotlari:</strong> Qaysi sahifalarga tashrif buyurganingiz, postlarni koʻrish vaqti (anonim ravishda).</li>
+                    <li><strong>Postlar va sharhlar:</strong> Agar siz admin boʻlsangiz (yoki kelajakda sharh qoʻshish funksiyasi qoʻshilsa), yozgan matnlaringiz.</li>
+                </ul>
+                <p>Biz hech qachon bankingiz yoki toʻlov maʼlumotlarini soʻramaymiz. Sayt hozircha bepul va reklama (AdSense) orqali daromad qilishi mumkin.</p>
+            </div>
+
+            <!-- Google login va email -->
+            <div class="privacy-section">
+                <h2><i class="fab fa-google"></i> Google orqali kirish va Email maʼlumotlari</h2>
+                <p>Safe Media saytiga kirish uchun <strong>Google autentifikatsiyasi</strong> (Google Sign-In) ishlatiladi. Bu orqali:</p>
+                <ul>
+                    <li>Siz hech qanday parol yaratishingiz shart emas.</li>
+                    <li>Sizning <strong>email manzilingiz</strong> va <strong>profil ismingiz</strong> bizning Firebase maʼlumotlar bazamizda faqat siz admin panelga kirganingizda yoki post qoʻshganingizda saqlanadi.</li>
+                    <li>Emailingiz hech qachon uchinchi shaxslarga sotilmaydi yoki tarqatilmaydi.</li>
+                    <li>Agar siz oddiy foydalanuvchi (admin emas) boʻlsangiz, emailingiz faqat vaqtinchalik sessiyada ishlatiladi va serverda doimiy saqlanmaydi.</li>
+                </ul>
+                <p>Google tomonidan berilgan maʼlumotlar faqat sizning shaxsingizni tasdiqlash va saytga kirish huquqini berish uchun ishlatiladi. Batafsil ma'lumot uchun <a href="https://policies.google.com/privacy" target="_blank" style="color:#4facfe">Google Privacy Policy</a> sahifasiga qarang.</p>
+            </div>
+
+            <!-- Ma'lumotlarni qanday o'chirish -->
+            <div class="privacy-section">
+                <h2><i class="fas fa-trash-alt"></i> Maʼlumotlarni qanday oʻchirish mumkin?</h2>
+                <p>Agar siz Safe Media saytida saqlangan maʼlumotlaringizni o‘chirishni istasangiz, quyidagi usullardan birini tanlashingiz mumkin:</p>
+                
+                <div class="delete-box">
+                    <strong><i class="fas fa-envelope"></i> 1-usul: Email orqali soʻrov yuborish</strong>
+                    <p>Bizning xavfsizlik xizmatiga quyidagi manzilga xat yozing:</p>
+                    <p><i class="fas fa-at"></i> <strong>ilmyolida@gmail.com</strong> (yoki hozirча <strong>Safemediaofficialsupport@gmail.com</strong>)</p>
+                    <p>Xatda «<strong>Maʼlumotlarimни o‘chirish</strong>» deb yozing va o‘zingizning Google emailingizni ko‘rsating. Biz 7 kun ichida barcha shaxsiy maʼlumotlaringizни (email, ism, yozgan postlaringiz) bazadan butunlay o‘chiramiz.</p>
+                </div>
+
+                <div class="delete-box">
+                    <strong><i class="fas fa-user-times"></i> 2-usul: Profil bo‘limidan o‘chirish (agar saytga kirgan bo‘lsangiz)</strong>
+                    <p>Saytga <strong>Google orqali kiring</strong> → Profil sahifasiga o‘ting → «<strong>Hisobimni butunlay o‘chirish</strong>» tugmasini bosing (agar mavjud bo‘lsa). Hozircha bu tugma to‘g‘ridan-to‘g‘ri mavjud emas, lekin kelgusi versiyalarda qo‘shiladi.</p>
+                    <p>Hozircha <strong>email</strong> orqali bog‘lanish eng tezkor usul.</p>
+                </div>
+
+                <p><strong>Eslatma:</strong> Maʼlumotlarni o‘chirishdan oldin saytda yozgan postlaringiz (agar admin bo‘lsangiz) ham o‘chadi. O‘chirilgan maʼlumotlar qayta tiklanmaydi.</p>
+            </div>
+
+            <!-- Hisobni butunlay o'chirish (Account Deletion) -->
+            <div class="privacy-section">
+                <h2><i class="fas fa-ban"></i> Hisobni butunlay o‘chirish (Account Deletion)</h2>
+                <p>Google akkauntingizni Safe Media saytida o‘chirish uchun sizdan <strong>ikkita harakat</strong> talab qilinadi:</p>
+                <ol>
+                    <li><strong>Google akkauntidan chiqish</strong> – siz saytga kirish huquqini yo‘qotasiz, ammo eski maʼlumotlar bazada qolishi mumkin.</li>
+                    <li><strong>Maʼlumotlarni o‘chirish so‘rovini yuborish</strong> – yuqoridagi email orqali yoki kelajakda sayt ichidagi tugma orqali.</li>
+                </ol>
+                <p>Hisobingiz o‘chirilganda quyidagilar yo‘q qilinadi:</p>
+                <ul>
+                    <li>Google emailingiz va ismingiz</li>
+                    <li>Siz yozgan barcha postlar (agar admin bo‘lsangiz)</li>
+                    <li>Qidiruv tarixingiz va sozlamalaringiz</li>
+                </ul>
+                <p><strong>Muhim:</strong> Agar siz oddiy foydalanuvchi bo‘lsangiz va hech qachon post yozmagan bo‘lsangiz, saytda saqlangan hech qanday shaxsiy maʼlumot yo‘q. Siz faqat Google orqali kirish orqali vaqtinchalik session maʼlumot qoldirasiz.</p>
+            </div>
+
+            <!-- Foydalanuvchi huquqlari -->
+            <div class="privacy-section">
+                <h2><i class="fas fa-gavel"></i> Sizning huquqlaringiz</h2>
+                <p>GDPR (Yevropa) va boshqa xalqaro qonunlarga muvofiq, siz quyidagi huquqlarga egasiz:</p>
+                <ul>
+                    <li><strong>Kirish huquqi:</strong> Siz haqingizda qanday maʼlumotlar saqlanayotganini bilish.</li>
+                    <li><strong>Tuzatish huquqi:</strong> Noto‘g‘ri maʼlumotlarni o‘zgartirish.</li>
+                    <li><strong>O‘chirish huquqi (“unutilish huquqi”):</strong> Yuqorida aytilganidek, maʼlumotlaringizni butunlay o‘chirish.</li>
+                    <li><strong>Cheklash huquqi:</strong> Maʼlumotlarni qayta ishlashni to‘xtatish.</li>
+                    <li><strong>Maʼlumotlarni ko‘chirish:</strong> Maʼlumotlaringizni mashinada o‘qiladigan formatda olish.</li>
+                </ul>
+                <p>Ushbu huquqlardan foydalanish uchun <strong>safemediaofficialsupport@gmail.com</strong> manziliga murojaat qiling. Biz 30 kun ichida javob beramiz.</p>
+            </div>
+
+            <!-- Cookie'lar va trekerlar -->
+            <div class="privacy-section">
+                <h2><i class="fas fa-cookie-bite"></i> Cookie va trekerlar</h2>
+                <p>Saytimiz quyidagi texnologiyalardan foydalanadi:</p>
+                <ul>
+                    <li><strong>Firebase Auth:</strong> Google kirish sessiyasini saqlash uchun lokal storage va cookie.</li>
+                    <li><strong>Google Analytics (kelajakda):</strong> Sayt trafigini tahlil qilish uchun. Siz brauzeringiz sozlamalarida cookie’larni o‘chirib qo‘yishingiz mumkin.</li>
+                    <li><strong>AdSense (agar qo‘shilsa):</strong> Reklamalarni ko‘rsatish uchun uchinchi tomon cookie’lari.</li>
+                </ul>
+                <p>Cookie’larni o‘chirish saytning baʼzi funksiyalariga taʼsir qilishi mumkin (masalan, har safar qayta kirish talab qilinadi).</p>
+            </div>
+
+            <!-- Bolalar maxfiyligi -->
+            <div class="privacy-section">
+                <h2><i class="fas fa-child"></i> 13 yoshgacha bo‘lgan bolalar</h2>
+                <p>Safe Media 13 yoshgacha bo‘lgan shaxslardan ataylab maʼlumot yig‘maydi. Agar siz ota-ona yoki vasiy bo‘lib, farzandingiz bizga maʼlumot yuborganini aniqlasangiz, iltimos, biz bilan bog‘laning va biz bu maʼlumotlarni o‘chiramiz.</p>
+            </div>
+
+            <!-- O'zgarishlar va aloqa -->
+            <div class="privacy-section">
+                <h2><i class="fas fa-exchange-alt"></i> Ushbu Privacy Policy o‘zgarishlari</h2>
+                <p>Biz vaqti-vaqti bilan ushbu siyosatni yangilab turishimiz mumkin. O‘zgarishlar bo‘lganda, sahifaning yuqori qismidagi sana yangilanadi. Muhim o‘zgarishlar bo‘lsa, sayt orqali yoki email orqali xabar beramiz.</p>
+                
+                <h3><i class="fas fa-phone-alt"></i> Biz bilan bog‘lanish</h3>
+                <p>Agar sizda savollar yoki shikoyatlar bo‘lsa:</p>
+                <ul>
+                    <li>Email: <strong>safemediaofficialsupport@gmail.com</strong> (yoki hozircha <strong>ilmyolida@gmail.com</strong>)</li>
+                    <li>Yoki saytning <strong>"Profil"</strong> bo‘limidagi aloqa formasi orqali (kelgusida).</li>
+                </ul>
+                <a href="index.html" class="contact-btn"><i class="fas fa-home"></i> Bosh sahifaga qaytish</a>
+            </div>
+
+            <div class="back-to-home">
+                <a href="index.html"><i class="fas fa-arrow-left"></i> Safe Media asosiy sahifasiga</a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Theme funksiyalari (asosiy saytdagi bilan bir xil)
+        function setTheme(theme) {
+            localStorage.setItem('theme', theme);
+            document.body.classList.remove('light-mode', 'reading-mode');
+            if (theme === 'light') document.body.classList.add('light-mode');
+            if (theme === 'reading') document.body.classList.add('reading-mode');
+        }
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) setTheme(savedTheme);
+        
+        function goBack() {
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>
