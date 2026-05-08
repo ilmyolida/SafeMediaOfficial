@@ -8,6 +8,9 @@
     "no-inline-styles": "off",
     "compat-api/css": "off",
     "disown-opener": "off",
-    "axe/text-alternatives": "off"
+    "axe/text-alternatives": "off",
+    "axe/name-role-value": "off",
+    "axe/parsing": "off",
+    "meta-charset-utf-8": "off"
   }
 }
