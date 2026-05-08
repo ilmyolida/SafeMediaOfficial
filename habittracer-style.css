@@ -1,0 +1,239 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+    color: white;
+    min-height: 100vh;
+}
+
+.app-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    padding-bottom: 80px;
+}
+
+/* Header */
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.back-btn {
+    background: rgba(255,255,255,0.1);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.back-btn:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+.app-header h1 {
+    font-size: 1.5rem;
+    background: linear-gradient(90deg, #4facfe, #00f2fe);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.header-icons i {
+    font-size: 1.3rem;
+    margin-left: 15px;
+    color: #4facfe;
+    cursor: pointer;
+}
+
+/* Stats Section */
+.stats-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 15px;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.stat-card h3 {
+    font-size: 1.8rem;
+    color: #4facfe;
+    margin-bottom: 5px;
+}
+
+.stat-card p {
+    font-size: 0.8rem;
+    color: #aaa;
+}
+
+/* Habits List */
+.habits-list {
+    margin-bottom: 20px;
+}
+
+.habit-item {
+    background: rgba(255,255,255,0.05);
+    border-radius: 15px;
+    padding: 15px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.habit-item:hover {
+    background: rgba(255,255,255,0.1);
+    transform: translateX(5px);
+}
+
+.habit-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.habit-info i {
+    font-size: 1.5rem;
+    color: #4facfe;
+}
+
+.habit-info h4 {
+    margin-bottom: 3px;
+}
+
+.habit-info p {
+    font-size: 0.75rem;
+    color: #aaa;
+}
+
+.habit-check i {
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.habit-check i.completed {
+    color: #00c853;
+}
+
+.habit-check i:not(.completed) {
+    color: #aaa;
+}
+
+/* Add Habit Button */
+.add-habit-btn {
+    width: 100%;
+    background: linear-gradient(90deg, #4facfe, #00f2fe);
+    border: none;
+    padding: 15px;
+    border-radius: 30px;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+    transition: 0.3s;
+}
+
+.add-habit-btn:hover {
+    transform: scale(1.02);
+    box-shadow: 0 5px 20px rgba(79,172,254,0.4);
+}
+
+/* Quote Section */
+.quote-section {
+    background: linear-gradient(135deg, rgba(79,172,254,0.1), rgba(0,242,254,0.1));
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+}
+
+.quote-section i {
+    font-size: 2rem;
+    color: #4facfe;
+    opacity: 0.5;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+.quote-section p {
+    font-size: 1rem;
+    font-style: italic;
+    color: #ddd;
+}
+
+/* Bottom Navigation */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-width: 500px;
+    margin: 0 auto;
+    background: rgba(10,14,39,0.95);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-around;
+    padding: 12px 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.bottom-nav .nav-item {
+    text-align: center;
+    color: #888;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.bottom-nav .nav-item i {
+    font-size: 1.3rem;
+}
+
+.bottom-nav .nav-item span {
+    display: block;
+    font-size: 0.7rem;
+    margin-top: 4px;
+}
+
+.bottom-nav .nav-item.active {
+    color: #4facfe;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+    .app-container {
+        padding: 15px;
+    }
+    
+    .stat-card h3 {
+        font-size: 1.3rem;
+    }
+}
