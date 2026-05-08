@@ -6,125 +6,108 @@
     <title>Safe Media Official</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
 </head>
 <body>
 
-    <header class="header">
-        <div class="menu-icon" onclick="toggleSideMenu()">
-            <i class="fas fa-bars"></i>
-        </div>
-        <div class="logo" data-lang="brand">Safe Media</div>
-        <div class="theme-icons">
-            <i class="fas fa-moon" onclick="setTheme('dark')"></i>
-            <i class="fas fa-sun" onclick="setTheme('light')"></i>
-            <i class="fas fa-book-open" onclick="setTheme('reading')"></i>
-        </div>
-    </header>
-
-    <!-- SIDE MENU -->
-    <div id="sideDrawer" class="side-drawer">
-        <div class="drawer-header">
-            <h3>Safe Media</h3>
-            <i class="fas fa-times close-drawer" onclick="toggleSideMenu()"></i>
-        </div>
-        <div class="search-box">
-            <i class="fas fa-search"></i>
-            <input type="text" id="searchInput" data-lang="search" placeholder="Издөө...">
-        </div>
-
-        <div class="drawer-section">
-            <h4><i class="fas fa-mobile-alt"></i> <span data-lang="ourApps">Safe Media Apps</span></h4>
-            <ul>
-                <li><a href="habittracer.htm"><i class="fas fa-chart-line"></i> <span data-lang="habitTracker">Habit Tracker Pro</span></a></li>
-                <li><a href="privaacy.htm"><i class="fas fa-lock"></i> <span data-lang="privacyPolicy">Privacy Policy</span></a></li>
-                <li><a href="#"><i class="fas fa-wallet"></i> <span data-lang="safeWallet">Safe Media Wallet</span></a></li>
-            </ul>
-        </div>
-
-        <div class="drawer-section">
-            <h4><i class="fas fa-language"></i> <span data-lang="language">Тил / Language</span></h4>
-            <select id="langSelect" onchange="changeLanguage(this.value)">
-                <option value="ky">🇰🇬 Кыргызча</option>
-                <option value="en">🇬🇧 English</option>
-                <option value="ru">🇷🇺 Русский</option>
-                <option value="tr">🇹🇷 Türkçe</option>
-                <option value="ar">🇸🇦 العربية</option>
-            </select>
-        </div>
-
-        <div class="drawer-section">
-            <h4><i class="fas fa-info-circle"></i> <span data-lang="about">Биз жөнүндө</span></h4>
-            <p id="aboutText" data-lang="aboutText">Safe Media - дин, тарбия жана технология</p>
-        </div>
-
-        <div class="drawer-section">
-            <h4><i class="fas fa-shield-alt"></i> Құпиялық</h4>
-            <ul>
-                <li><a href="privaacy.htm"><i class="fas fa-lock"></i> Privacy Policy</a></li>
-            </ul>
-        </div>
+<header class="header">
+    <div class="menu-icon" onclick="toggleSideMenu()"><i class="fas fa-bars"></i></div>
+    <div class="logo" data-lang="brand">Safe Media</div>
+    <div class="theme-icons">
+        <i class="fas fa-moon" onclick="setTheme('dark')"></i>
+        <i class="fas fa-sun" onclick="setTheme('light')"></i>
+        <i class="fas fa-book-open" onclick="setTheme('reading')"></i>
     </div>
+</header>
 
-    <!-- MAIN CONTENT -->
-    <main class="main-content" id="mainContent">
-        <div id="postsContainer" class="posts-container">
-            <div class="loading">Жүктөлүүдө...</div>
-        </div>
-    </main>
-
-    <!-- BOTTOM NAVIGATION (4 ta: Home, Community, Info, Profile) -->
-    <nav class="bottom-nav" id="bottomNav">
-        <div class="nav-item active" data-page="home">
-            <i class="fas fa-home"></i>
-            <span data-lang="home">Башкы</span>
-        </div>
-        <div class="nav-item" data-page="community">
-            <i class="fas fa-users"></i>
-            <span data-lang="community">Жамият</span>
-        </div>
-        <div class="nav-item" data-page="info">
-            <i class="fas fa-info-circle"></i>
-            <span data-lang="info">Маалымат</span>
-        </div>
-        <div class="nav-item" data-page="profile">
-            <i class="fas fa-user"></i>
-            <span data-lang="profile">Профиль</span>
-        </div>
-    </nav>
-
-    <!-- LOGIN MODAL -->
-    <div id="loginModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeLoginModal()">&times;</span>
-            <h3 data-lang="loginRequired">Кирүү керек</h3>
-            <p id="loginStatus" data-lang="loginDesc">Google аркылуу кириңиз</p>
-            <button id="googleLoginBtn" class="google-btn"><i class="fab fa-google"></i> <span data-lang="loginWithGoogle">Google менен кирүү</span></button>
-        </div>
+<!-- SIDE MENU -->
+<div id="sideDrawer" class="side-drawer">
+    <div class="drawer-header"><h3>Safe Media</h3><i class="fas fa-times close-drawer" onclick="toggleSideMenu()"></i></div>
+    <div class="search-box"><i class="fas fa-search"></i><input type="text" id="searchInput" data-lang="search" placeholder="Издөө..." onkeyup="searchPosts()"></div>
+    
+    <div class="drawer-section">
+        <h4><i class="fas fa-mobile-alt"></i> <span data-lang="ourApps">Safe Media Apps</span></h4>
+        <ul>
+            <li><a href="https://ilmyolida.github.io/Habittracer/" target="_blank"><i class="fas fa-chart-line"></i> <span data-lang="habitTracker">Habit Tracker Pro</span></a></li>
+            <li><a href="#" id="dailyQuoteBtn"><i class="fas fa-quote-right"></i> <span data-lang="dailyQuote">Күн цитатасы</span></a></li>
+            <li><a href="#" id="todoBtn"><i class="fas fa-tasks"></i> <span data-lang="todo">Тапшырмалар</span></a></li>
+        </ul>
     </div>
-
-    <!-- ADMIN MODAL -->
-    <div id="adminModal" class="modal">
-        <div class="modal-content admin-modal">
-            <span class="close-modal" onclick="closeAdminModal()">&times;</span>
-            <h3 data-lang="addNewPost">Жаңы пост кошуу</h3>
-            <input type="text" id="postTitle" data-lang="postTitle" placeholder="Сарлавҳа">
-            <textarea id="postContent" rows="5" data-lang="postContent" placeholder="Мазмуну"></textarea>
-            <input type="text" id="postImage" data-lang="postImage" placeholder="Сүрөт URL">
-            <select id="postCategory">
-                <option value="home" data-lang="home">Башкы</option>
-                <option value="community" data-lang="community">Жамият</option>
-                <option value="info" data-lang="info">Маалымат</option>
-            </select>
-            <button id="submitPostBtn" class="submit-btn"><span data-lang="publish">Постту жарыялоо</span></button>
-        </div>
+    
+    <div class="drawer-section">
+        <h4><i class="fas fa-language"></i> <span data-lang="language">Тил / Language</span></h4>
+        <select id="langSelect" onchange="changeLanguage(this.value)">
+            <option value="ky">🇰🇬 Кыргызча</option><option value="en">🇬🇧 English</option>
+            <option value="ru">🇷🇺 Русский</option><option value="tr">🇹🇷 Türkçe</option><option value="ar">🇸🇦 العربية</option>
+        </select>
     </div>
+    
+    <div class="drawer-section">
+        <h4><i class="fas fa-info-circle"></i> <span data-lang="about">Биз жөнүндө</span></h4>
+        <p id="aboutText" data-lang="aboutText">Safe Media - дин, тарбия жана технология</p>
+    </div>
+    
+    <div class="drawer-section">
+        <h4><i class="fas fa-shield-alt"></i> Купуялык</h4>
+        <ul><li><a href="privaacy.htm"><i class="fas fa-lock"></i> Privacy Policy</a></li></ul>
+    </div>
+</div>
 
-    <script src="firebase-config.js"></script>
-    <script src="languages.js"></script>
-    <script src="script.js"></script>
+<!-- MAIN CONTENT - POSTS -->
+<main class="main-content" id="mainContent">
+    <div id="postsContainer" class="posts-container">
+        <div class="loading">Жүктөлүүдө...</div>
+    </div>
+</main>
+
+<!-- BOTTOM NAVIGATION -->
+<nav class="bottom-nav" id="bottomNav">
+    <div class="nav-item active" data-page="home"><i class="fas fa-home"></i><span data-lang="home">Башкы</span></div>
+    <div class="nav-item" data-page="community"><i class="fas fa-users"></i><span data-lang="community">Жамият</span></div>
+    <div class="nav-item" data-page="info"><i class="fas fa-info-circle"></i><span data-lang="info">Маалымат</span></div>
+    <div class="nav-item" data-page="profile"><i class="fas fa-user"></i><span data-lang="profile">Профиль</span></div>
+</nav>
+
+<!-- LOGIN MODAL -->
+<div id="loginModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeLoginModal()">&times;</span>
+        <h3 data-lang="loginRequired">Кирүү керек</h3>
+        <p id="loginStatus" data-lang="loginDesc">Google аркылуу кириңиз</p>
+        <button id="googleLoginBtn" class="google-btn"><i class="fab fa-google"></i> <span data-lang="loginWithGoogle">Google менен кирүү</span></button>
+    </div>
+</div>
+
+<!-- ADMIN MODAL - POST QO'SHISH -->
+<div id="adminModal" class="modal">
+    <div class="modal-content admin-modal" style="max-width: 600px;">
+        <span class="close-modal" onclick="closeAdminModal()">&times;</span>
+        <h3><i class="fas fa-plus-circle"></i> <span data-lang="addNewPost">Жаңы пост кошуу</span></h3>
+        
+        <label>📷 <span data-lang="postImage">Сүрөт URL</span></label>
+        <input type="text" id="postImage" data-lang="postImage" placeholder="https://...">
+        
+        <label>📝 <span data-lang="postTitle">Сарлавҳа</span></label>
+        <input type="text" id="postTitle" data-lang="postTitle" placeholder="Сарлавҳа">
+        
+        <label>📄 <span data-lang="postContent">Мазмуну</span></label>
+        <textarea id="postContent" rows="5" data-lang="postContent" placeholder="Мазмуну"></textarea>
+        
+        <label>📂 <span data-lang="selectCategory">Категория</span></label>
+        <select id="postCategory">
+            <option value="home">🏠 Башкы бет (Home)</option>
+            <option value="community">👥 Жамият (Community)</option>
+            <option value="info">ℹ️ Маалымат (Info)</option>
+        </select>
+        
+        <button id="submitPostBtn" class="submit-btn"><i class="fas fa-save"></i> <span data-lang="publish">Постту жарыялоо</span></button>
+    </div>
+</div>
+
+<script src="firebase-config.js"></script>
+<script src="languages.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
