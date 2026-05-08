@@ -3,114 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
-    <title>Safe Media Official</title>
+    <title>Safe Media | Иман · Илим · Технология</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
 </head>
 <body>
 
-<header class="header">
-    <div class="menu-icon" onclick="toggleSideMenu()"><i class="fas fa-bars"></i></div>
-    <div class="logo" data-lang="brand">Safe Media</div>
-    <div class="theme-icons">
-        <i class="fas fa-moon" onclick="setTheme('dark')"></i>
-        <i class="fas fa-sun" onclick="setTheme('light')"></i>
-        <i class="fas fa-book-open" onclick="setTheme('reading')"></i>
-    </div>
-</header>
+<div class="app-wrapper">
+    <header class="header glass">
+        <div class="menu-icon" onclick="toggleSideMenu()"><i class="fas fa-bars"></i></div>
+        <div class="logo"><span class="logo-icon">🛡️</span><span>Safe Media</span></div>
+        <div class="theme-icons">
+            <i class="fas fa-moon" onclick="setTheme('dark')"></i>
+            <i class="fas fa-sun" onclick="setTheme('light')"></i>
+            <i class="fas fa-book-open" onclick="setTheme('reading')"></i>
+        </div>
+    </header>
 
-<!-- SIDE MENU -->
-<div id="sideDrawer" class="side-drawer">
-    <div class="drawer-header"><h3>Safe Media</h3><i class="fas fa-times close-drawer" onclick="toggleSideMenu()"></i></div>
-    <div class="search-box"><i class="fas fa-search"></i><input type="text" id="searchInput" data-lang="search" placeholder="Издөө..." onkeyup="searchPosts()"></div>
-    
-    <div class="drawer-section">
-        <h4><i class="fas fa-mobile-alt"></i> <span data-lang="ourApps">Safe Media Apps</span></h4>
-        <ul>
-            <li><a href="https://ilmyolida.github.io/Habittracer/" target="_blank"><i class="fas fa-chart-line"></i> <span data-lang="habitTracker">Habit Tracker Pro</span></a></li>
-            <li><a href="#" id="dailyQuoteBtn"><i class="fas fa-quote-right"></i> <span data-lang="dailyQuote">Күн цитатасы</span></a></li>
-            <li><a href="#" id="todoBtn"><i class="fas fa-tasks"></i> <span data-lang="todo">Тапшырмалар</span></a></li>
-        </ul>
+    <div id="sideDrawer" class="side-drawer glass">
+        <div class="drawer-header"><h3><i class="fas fa-shield-alt"></i> Safe Media</h3><i class="fas fa-times close-drawer" onclick="toggleSideMenu()"></i></div>
+        <div class="search-box"><i class="fas fa-search"></i><input type="text" id="searchInput" placeholder="Қидириш..." onkeyup="searchPosts()"></div>
+        <div class="drawer-section"><h4><i class="fas fa-language"></i> Тил</h4><select id="langSelect" onchange="changeLanguage(this.value)"><option value="ky">🇰🇬 Кыргызча</option><option value="en">🇬🇧 English</option><option value="ru">🇷🇺 Русский</option><option value="tr">🇹🇷 Türkçe</option><option value="ar">🇸🇦 العربية</option></select></div>
+        <div class="drawer-section"><h4><i class="fas fa-info-circle"></i> Биз жөнүндө</h4><p>Safe Media – дин, тарбия, технология бирлешкен платформа</p></div>
+        <div class="drawer-section"><h4><i class="fas fa-shield-alt"></i> Купуялык</h4><ul><li><a href="privacy.html"><i class="fas fa-lock"></i> Privacy Policy</a></li></ul></div>
+        <div class="drawer-section"><h4><i class="fas fa-life-ring"></i> Қўшимча</h4><ul><li><a href="#" onclick="showTasbeeh()"><i class="fas fa-praying-hands"></i> Тасбеҳ</a></li><li><a href="#" onclick="showDailyGoal()"><i class="fas fa-bullseye"></i> Мақсад</a></li><li><a href="#" onclick="showTodoList()"><i class="fas fa-tasks"></i> Вазифалар</a></li><li><a href="#" onclick="showMotivation()"><i class="fas fa-quote-right"></i> Мотивация</a></li><li><a href="#" onclick="showStatistics()"><i class="fas fa-chart-line"></i> Статистика</a></li></ul></div>
     </div>
-    
-    <div class="drawer-section">
-        <h4><i class="fas fa-language"></i> <span data-lang="language">Тил / Language</span></h4>
-        <select id="langSelect" onchange="changeLanguage(this.value)">
-            <option value="ky">🇰🇬 Кыргызча</option><option value="en">🇬🇧 English</option>
-            <option value="ru">🇷🇺 Русский</option><option value="tr">🇹🇷 Türkçe</option><option value="ar">🇸🇦 العربية</option>
-        </select>
-    </div>
-    
-    <div class="drawer-section">
-        <h4><i class="fas fa-info-circle"></i> <span data-lang="about">Биз жөнүндө</span></h4>
-        <p id="aboutText" data-lang="aboutText">Safe Media - дин, тарбия жана технология</p>
-    </div>
-    
-    <div class="drawer-section">
-        <h4><i class="fas fa-shield-alt"></i> Купуялык</h4>
-        <ul><li><a href="privaacy.htm"><i class="fas fa-lock"></i> Privacy Policy</a></li></ul>
-    </div>
-</div>
 
-<!-- MAIN CONTENT - POSTS -->
-<main class="main-content" id="mainContent">
-    <div id="postsContainer" class="posts-container">
-        <div class="loading">Жүктөлүүдө...</div>
-    </div>
-</main>
+    <main class="main-content"><div id="postsContainer" class="posts-container"><div class="loading-spinner"></div></div></main>
 
-<!-- BOTTOM NAVIGATION -->
-<nav class="bottom-nav" id="bottomNav">
-    <div class="nav-item active" data-page="home"><i class="fas fa-home"></i><span data-lang="home">Башкы</span></div>
-    <div class="nav-item" data-page="community"><i class="fas fa-users"></i><span data-lang="community">Жамият</span></div>
-    <div class="nav-item" data-page="info"><i class="fas fa-info-circle"></i><span data-lang="info">Маалымат</span></div>
-    <div class="nav-item" data-page="profile"><i class="fas fa-user"></i><span data-lang="profile">Профиль</span></div>
-</nav>
+    <nav class="bottom-nav glass">
+        <div class="nav-item active" data-page="home"><i class="fas fa-home"></i><span>Башкы</span></div>
+        <div class="nav-item" data-page="info"><i class="fas fa-info-circle"></i><span>Маалымат</span></div>
+        <div class="nav-item" data-page="community"><i class="fas fa-users"></i><span>Жамият</span></div>
+        <div class="nav-item" data-page="profile"><i class="fas fa-user"></i><span>Профиль</span></div>
+    </nav>
 
-<!-- LOGIN MODAL -->
-<div id="loginModal" class="modal">
-    <div class="modal-content">
-        <span class="close-modal" onclick="closeLoginModal()">&times;</span>
-        <h3 data-lang="loginRequired">Кирүү керек</h3>
-        <p id="loginStatus" data-lang="loginDesc">Google аркылуу кириңиз</p>
-        <button id="googleLoginBtn" class="google-btn"><i class="fab fa-google"></i> <span data-lang="loginWithGoogle">Google менен кирүү</span></button>
-    </div>
-</div>
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal"><div class="modal-content glass"><span class="close-modal" onclick="closeLoginModal()">&times;</span><h3><i class="fab fa-google"></i> Кирүү</h3><p>Google аккаунт аркылуу кириңиз</p><button id="googleLoginBtn" class="btn-gradient"><i class="fab fa-google"></i> Google билан кириш</button></div></div>
 
-<!-- ADMIN MODAL - POST QO'SHISH -->
-<div id="adminModal" class="modal">
-    <div class="modal-content admin-modal" style="max-width: 600px;">
-        <span class="close-modal" onclick="closeAdminModal()">&times;</span>
-        <h3><i class="fas fa-plus-circle"></i> <span data-lang="addNewPost">Жаңы пост кошуу</span></h3>
-        
-        <label>📷 <span data-lang="postImage">Сүрөт URL</span></label>
-        <input type="text" id="postImage" data-lang="postImage" placeholder="https://...">
-        
-        <label>📝 <span data-lang="postTitle">Сарлавҳа</span></label>
-        <input type="text" id="postTitle" data-lang="postTitle" placeholder="Сарлавҳа">
-        
-        <label>📄 <span data-lang="postContent">Мазмуну</span></label>
-        <textarea id="postContent" rows="5" data-lang="postContent" placeholder="Мазмуну"></textarea>
-        
-        <label>📂 <span data-lang="selectCategory">Категория</span></label>
-        <select id="postCategory">
-            <option value="home">🏠 Башкы бет (Home)</option>
-            <option value="community">👥 Жамият (Community)</option>
-            <option value="info">ℹ️ Маалымат (Info)</option>
-        </select>
-        
-        <button id="submitPostBtn" class="submit-btn"><i class="fas fa-save"></i> <span data-lang="publish">Постту жарыялоо</span></button>
-    </div>
+    <!-- Admin Modal (Post qo'shish) -->
+    <div id="adminModal" class="modal"><div class="modal-content glass" style="max-width:550px"><span class="close-modal" onclick="closeAdminModal()">&times;</span><h3><i class="fas fa-plus-circle"></i> Жаңы пост</h3><input type="text" id="postTitle" placeholder="Сарлавҳа" class="input-glass"><textarea id="postContent" rows="5" placeholder="Пост мазмуну..." class="input-glass"></textarea><select id="postCategory" class="input-glass"><option value="home">🏠 Башкы бет</option><option value="info">ℹ️ Маалымат</option><option value="community">👥 Жамият</option></select><button id="submitPostBtn" class="btn-gradient"><i class="fas fa-save"></i> Постту жарыялоо</button></div></div>
+
+    <!-- Edit Modal -->
+    <div id="editModal" class="modal"><div class="modal-content glass"><span class="close-modal" onclick="closeEditModal()">&times;</span><h3><i class="fas fa-edit"></i> Постни таҳрирлаш</h3><input type="text" id="editTitle" placeholder="Сарлавҳа" class="input-glass"><textarea id="editContent" rows="5" placeholder="Мазмуну..." class="input-glass"></textarea><select id="editCategory" class="input-glass"><option value="home">Башкы</option><option value="info">Маалымат</option><option value="community">Жамият</option></select><button id="saveEditBtn" class="btn-gradient"><i class="fas fa-save"></i> Сақлаш</button></div></div>
+
+    <!-- Comment Modal -->
+    <div id="commentModal" class="modal"><div class="modal-content glass"><span class="close-modal" onclick="closeCommentModal()">&times;</span><h3><i class="fas fa-comments"></i> Изолар</h3><div id="commentsList" style="max-height:270px; overflow-y:auto; margin-bottom:15px"></div><textarea id="newComment" rows="3" placeholder="Изоҳ ёзинг..." class="input-glass"></textarea><button id="addCommentBtn" class="btn-gradient"><i class="fas fa-paper-plane"></i> Изоҳ қолдириш</button></div></div>
 </div>
 
 <script src="firebase-config.js"></script>
-<script src="languages.js"></script>
 <script src="script.js"></script>
-<script src="extra-functions.js"></script>
-<script src="all-features.js"></script>
-<script src="premium-features.js"></script>
 </body>
 </html>
