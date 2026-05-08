@@ -3,20 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
-    <title>Safe Media | Иман · Илим · Технология</title>
+    <title>Safe Media | Бизнес · Илим · Технология</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-storage-compat.js"></script>
 </head>
 <body>
 
 <div class="app-wrapper">
     <header class="header glass">
         <div class="menu-icon" onclick="toggleSideMenu()"><i class="fas fa-bars"></i></div>
-        <div class="logo"><span class="logo-icon">🛡️</span><span>Safe Media</span></div>
+        <div class="logo">
+            <!-- PNG LOGO ICON – O'Z PATHINGIZNI YOZING -->
+            <img src="favicon.png" alt="Safe Media Logo" class="logo-img" onerror="this.style.display='none'">
+            <span>Safe Media</span>
+        </div>
         <div class="theme-icons">
             <i class="fas fa-moon" onclick="setTheme('dark')"></i>
             <i class="fas fa-sun" onclick="setTheme('light')"></i>
@@ -30,6 +35,7 @@
         <div class="drawer-section"><h4><i class="fas fa-language"></i> Тил</h4><select id="langSelect" onchange="changeLanguage(this.value)"><option value="ky">🇰🇬 Кыргызча</option><option value="en">🇬🇧 English</option><option value="ru">🇷🇺 Русский</option><option value="tr">🇹🇷 Türkçe</option><option value="ar">🇸🇦 العربية</option></select></div>
         <div class="drawer-section"><h4><i class="fas fa-info-circle"></i> Биз жөнүндө</h4><p>Safe Media – дин, тарбия, технология бирлешкен платформа</p></div>
         <div class="drawer-section"><h4><i class="fas fa-shield-alt"></i> Купуялык</h4><ul><li><a href="privacy.html"><i class="fas fa-lock"></i> Privacy Policy</a></li></ul></div>
+        <div class="drawer-section"><h4><i class="fas fa-chart-line"></i> Safe Media Apps</h4><ul><li><a href="https://ilmyolida.github.io/Habittracer/" target="_blank"><i class="fas fa-chart-line"></i> Habit Tracker Pro</a></li></ul></div>
         <div class="drawer-section"><h4><i class="fas fa-life-ring"></i> Қўшимча</h4><ul><li><a href="#" onclick="showTasbeeh()"><i class="fas fa-praying-hands"></i> Тасбеҳ</a></li><li><a href="#" onclick="showDailyGoal()"><i class="fas fa-bullseye"></i> Мақсад</a></li><li><a href="#" onclick="showTodoList()"><i class="fas fa-tasks"></i> Вазифалар</a></li><li><a href="#" onclick="showMotivation()"><i class="fas fa-quote-right"></i> Мотивация</a></li><li><a href="#" onclick="showStatistics()"><i class="fas fa-chart-line"></i> Статистика</a></li></ul></div>
     </div>
 
@@ -45,7 +51,7 @@
     <!-- Login Modal -->
     <div id="loginModal" class="modal"><div class="modal-content glass"><span class="close-modal" onclick="closeLoginModal()">&times;</span><h3><i class="fab fa-google"></i> Кирүү</h3><p>Google аккаунт аркылуу кириңиз</p><button id="googleLoginBtn" class="btn-gradient"><i class="fab fa-google"></i> Google билан кириш</button></div></div>
 
-    <!-- Admin Modal (Post qo'shish) -->
+    <!-- Admin Modal -->
     <div id="adminModal" class="modal"><div class="modal-content glass" style="max-width:550px"><span class="close-modal" onclick="closeAdminModal()">&times;</span><h3><i class="fas fa-plus-circle"></i> Жаңы пост</h3><input type="text" id="postTitle" placeholder="Сарлавҳа" class="input-glass"><textarea id="postContent" rows="5" placeholder="Пост мазмуну..." class="input-glass"></textarea><select id="postCategory" class="input-glass"><option value="home">🏠 Башкы бет</option><option value="info">ℹ️ Маалымат</option><option value="community">👥 Жамият</option></select><button id="submitPostBtn" class="btn-gradient"><i class="fas fa-save"></i> Постту жарыялоо</button></div></div>
 
     <!-- Edit Modal -->

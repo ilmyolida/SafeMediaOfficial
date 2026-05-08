@@ -10,4 +10,5 @@ if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 const auth = firebase.auth();
 const provider = new firebase.auth.GoogleAuthProvider();
-const ADMIN_EMAILS = ["ilmyolida77@gmail.com"];
+const storage = firebase.storage(); // profil surati uchun
+const ADMIN_EMAILS = ["ilmyolida77@gmail.com", "safemediaosupport@gmail.com"];
