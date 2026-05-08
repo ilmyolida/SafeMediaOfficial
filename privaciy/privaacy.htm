@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Құпиялық саясаты | Safe Media</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .privacy-container { max-width: 800px; margin: 0 auto; padding: 20px; }
+        .privacy-header { text-align: center; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .privacy-header h1 { font-size: 2rem; background: linear-gradient(90deg, #4facfe, #00f2fe); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .privacy-section { background: rgba(255,255,255,0.05); border-radius: 20px; padding: 20px; margin-bottom: 20px; transition: 0.3s; }
+        .privacy-section h2 { color: #4facfe; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        .privacy-section p, .privacy-section li { color: #ddd; line-height: 1.6; }
+        .delete-box { background: rgba(255,107,107,0.1); border-left: 3px solid #ff6b6b; padding: 15px; border-radius: 15px; margin: 15px 0; }
+        .contact-btn { display: inline-block; background: linear-gradient(90deg, #4facfe, #00f2fe); padding: 12px 25px; border-radius: 30px; color: white; text-decoration: none; }
+        body.light-mode .privacy-section { background: rgba(0,0,0,0.03); }
+        body.light-mode .privacy-section p, body.light-mode .privacy-section li { color: #333; }
+        body.reading-mode .privacy-section { background: #fff3e0; }
+        body.reading-mode .privacy-section p, body.reading-mode .privacy-section li { color: #3b2a1f; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="menu-icon" onclick="goBack()"><i class="fas fa-arrow-left"></i></div>
+        <div class="logo">Құпиялық саясаты</div>
+        <div class="theme-icons">
+            <i class="fas fa-moon" onclick="setTheme('dark')"></i>
+            <i class="fas fa-sun" onclick="setTheme('light')"></i>
+            <i class="fas fa-book-open" onclick="setTheme('reading')"></i>
+        </div>
+    </header>
+    <main class="main-content">
+        <div class="privacy-container">
+            <div class="privacy-header"><h1><i class="fas fa-shield-alt"></i> Құпиялық саясаты</h1><p>So‘nggi yangilanish: 2026-yil 8-may</p></div>
+            <div class="privacy-section"><h2><i class="fas fa-info-circle"></i> Safe Media sayti haqida</h2><p>Safe Media Official – diniy va dunyoviy tarbiya, yaxshi odatlar, shaxsiy rivojlanish va texnologiyalarni birlashtirgan platforma.</p></div>
+            <div class="privacy-section"><h2><i class="fas fa-database"></i> Qanday maʼlumotlar yigʻiladi?</h2><ul><li>Google akkaunt maʼlumotlari (ism, email)</li><li>Foydalanish maʼlumotlari (anonim)</li><li>Postlar va sharhlar (admin uchun)</li></ul></div>
+            <div class="privacy-section"><h2><i class="fab fa-google"></i> Google orqali kirish</h2><p>Emailingiz faqat autentifikatsiya uchun ishlatiladi. Hech qachon uchinchi shaxslarga berilmaydi.</p></div>
+            <div class="privacy-section"><h2><i class="fas fa-trash-alt"></i> Maʼlumotlarni o‘chirish</h2><div class="delete-box"><strong>Email orqali:</strong> safemediaofficialsupport@gmail.com ga “Maʼlumotlarimni o‘chirish” mavzusida xat yuboring.</div><div class="delete-box"><strong>Profil orqali:</strong> Kelgusida sayt ichidagi tugma orqali.</div></div>
+            <div class="privacy-section"><h2><i class="fas fa-ban"></i> Hisobni butunlay o‘chirish</h2><p>Google akkauntdan chiqish va maʼlumotlarni o‘chirish so‘rovini yuborish kerak.</p></div>
+            <div class="privacy-section"><h2><i class="fas fa-gavel"></i> Sizning huquqlaringiz</h2><p>Kirish, tuzatish, o‘chirish, cheklash va maʼlumotlarni ko‘chirish huquqlari.</p><a href="index.htm" class="contact-btn"><i class="fas fa-home"></i> Bosh sahifaga</a></div>
+        </div>
+    </main>
+    <script>
+        function setTheme(theme) { localStorage.setItem('theme', theme); document.body.classList.remove('light-mode','reading-mode'); if(theme==='light') document.body.classList.add('light-mode'); if(theme==='reading') document.body.classList.add('reading-mode'); }
+        const savedTheme = localStorage.getItem('theme'); if(savedTheme) setTheme(savedTheme); else setTheme('dark');
+        function goBack() { window.location.href = 'index.htm'; }
+    </script>
+</body>
+</html>
