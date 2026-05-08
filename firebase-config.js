@@ -19,4 +19,4 @@ const auth = firebase.auth();
 const provider = new firebase.auth.GoogleAuthProvider();
 
 // Admin email roʻyxati (oʻz emailingizni yozing)
-const ADMIN_EMAILS = ["ilmyolida@gmail.com"];
+const ADMIN_EMAILS = ["ilmyolida77@gmail.com"];
