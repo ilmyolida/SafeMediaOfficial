@@ -572,7 +572,7 @@ function showSupportInfo() {
 }
 
 function copySupportInfo() {
-    const text = `Safe Media Support:\nPaynet: +996 505940600\nUSDT: Contact for address\nGoogle Pay: safemedia@gmail.com`;
+    const text = `Safe Media Support: +996 505940600\: Contact : safemediofficialsupport@gmail.com`;
     navigator.clipboard.writeText(text);
     alert("✅ Copied!");
     closeModal();
