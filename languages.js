@@ -1,11 +1,8 @@
 // ================= KO'P TILLILIK TIZIMI =================
 const translations = {
     ky: {
-        // Header
         brand: "Safe Media",
         search: "Издөө...",
-        
-        // Side Menu
         ourApps: "Safe Media Apps",
         habitTracker: "Habit Tracker Pro",
         pravilaTest: "Pravila Test",
@@ -13,14 +10,10 @@ const translations = {
         language: "Тил / Language",
         about: "Биз жөнүндө",
         aboutText: "Safe Media - дин, тарбия жана технологияны бириктирген платформа",
-        
-        // Bottom Navigation
         home: "Башкы",
         community: "Жамият",
-        solutions: "Чечимдер",
+        info: "Маалымат",
         profile: "Профиль",
-        
-        // Home Page
         welcome: "Safe Media ге кош келиңиз!",
         welcomeDesc: "Жакшы адаттар, рухий өсүү жана заманбап технология",
         categories: "Категориялар",
@@ -28,38 +21,27 @@ const translations = {
         habits: "Адаттар",
         business: "Бизнес жана Өсүш",
         islamic: "Ислам жана Руханият",
-        
-        // Solutions Page
-        solutionsTitle: "Чечимдер жана Натыйжалар",
+        solutionsTitle: "Маалымат борбору",
         problem: "Көйгөй",
         solution: "Чечим",
         result: "Натыйжа",
-        
-        // Profile Page
         loginRequired: "Кирүү керек",
         loginDesc: "Постторду көрүү үчүн Google менен кириңиз",
         loginWithGoogle: "Google менен кирүү",
         yourProfile: "Сиздин Профилиңиз",
         addPost: "Жаңы пост кошуу",
         logout: "Чыгуу",
-        
-        // Admin
         addNewPost: "Жаңы пост кошуу",
         postTitle: "Сарлавҳа",
         postContent: "Мазмуну",
         postImage: "Сүрөт URL (милдеттүү эмес)",
         selectCategory: "Категорияны тандаңыз",
         publish: "Постту жарыялоо",
-        
-        // Community
         communityTitle: "Жамият жаңылыктары",
         comingSoon: "Жакында...",
-        
-        // Buttons
         readMore: "Көбүрөөк окуу",
         explore: "Изилдөө"
     },
-    
     en: {
         brand: "Safe Media",
         search: "Search...",
@@ -72,7 +54,7 @@ const translations = {
         aboutText: "Safe Media - A platform combining faith, education and technology",
         home: "Home",
         community: "Community",
-        solutions: "Solutions",
+        info: "Info",
         profile: "Profile",
         welcome: "Welcome to Safe Media!",
         welcomeDesc: "Good habits, spiritual growth and modern technology",
@@ -81,7 +63,7 @@ const translations = {
         habits: "Habits",
         business: "Business & Growth",
         islamic: "Islam & Spirituality",
-        solutionsTitle: "Solutions & Results",
+        solutionsTitle: "Info Center",
         problem: "Problem",
         solution: "Solution",
         result: "Result",
@@ -102,7 +84,6 @@ const translations = {
         readMore: "Read More",
         explore: "Explore"
     },
-    
     ru: {
         brand: "Safe Media",
         search: "Поиск...",
@@ -115,7 +96,7 @@ const translations = {
         aboutText: "Safe Media - Платформа, объединяющая веру, образование и технологии",
         home: "Главная",
         community: "Сообщество",
-        solutions: "Решения",
+        info: "Инфо",
         profile: "Профиль",
         welcome: "Добро пожаловать в Safe Media!",
         welcomeDesc: "Хорошие привычки, духовный рост и современные технологии",
@@ -124,7 +105,7 @@ const translations = {
         habits: "Привычки",
         business: "Бизнес и Рост",
         islamic: "Ислам и Духовность",
-        solutionsTitle: "Решения и Результаты",
+        solutionsTitle: "Инфо центр",
         problem: "Проблема",
         solution: "Решение",
         result: "Результат",
@@ -145,7 +126,6 @@ const translations = {
         readMore: "Читать далее",
         explore: "Изучить"
     },
-    
     tr: {
         brand: "Safe Media",
         search: "Ara...",
@@ -158,7 +138,7 @@ const translations = {
         aboutText: "Safe Media - İnanç, eğitim ve teknolojiyi birleştiren platform",
         home: "Ana Sayfa",
         community: "Topluluk",
-        solutions: "Çözümler",
+        info: "Bilgi",
         profile: "Profil",
         welcome: "Safe Media'ya Hoş Geldiniz!",
         welcomeDesc: "İyi alışkanlıklar, manevi gelişim ve modern teknoloji",
@@ -167,7 +147,7 @@ const translations = {
         habits: "Alışkanlıklar",
         business: "İş ve Büyüme",
         islamic: "İslam ve Maneviyat",
-        solutionsTitle: "Çözümler ve Sonuçlar",
+        solutionsTitle: "Bilgi Merkezi",
         problem: "Sorun",
         solution: "Çözüm",
         result: "Sonuç",
@@ -188,7 +168,6 @@ const translations = {
         readMore: "Devamını Oku",
         explore: "Keşfet"
     },
-    
     ar: {
         brand: "Safe Media",
         search: "بحث...",
@@ -201,7 +180,7 @@ const translations = {
         aboutText: "Safe Media - منصة تجمع بين الإيمان والتعليم والتكنولوجيا",
         home: "الرئيسية",
         community: "المجتمع",
-        solutions: "الحلول",
+        info: "معلومات",
         profile: "الملف الشخصي",
         welcome: "مرحباً بكم في Safe Media!",
         welcomeDesc: "العادات الجيدة، النمو الروحي والتكنولوجيا الحديثة",
@@ -210,7 +189,7 @@ const translations = {
         habits: "العادات",
         business: "الأعمال والنمو",
         islamic: "الإسلام والروحانيات",
-        solutionsTitle: "الحلول والنتائج",
+        solutionsTitle: "مركز المعلومات",
         problem: "المشكلة",
         solution: "الحل",
         result: "النتيجة",
@@ -233,87 +212,40 @@ const translations = {
     }
 };
 
-// Hozirgi til
 let currentLang = localStorage.getItem('lang') || 'ky';
 
-// Tilni o'zgartirish funksiyasi
 function changeLanguage(lang) {
     currentLang = lang;
     localStorage.setItem('lang', lang);
-    
-    // Select elementini yangilash
     const langSelect = document.getElementById('langSelect');
-    if (langSelect) {
-        langSelect.value = lang;
-    }
-    
-    // Sahifadagi barcha matnlarni yangilash
+    if (langSelect) langSelect.value = lang;
     updateAllTexts();
 }
 
 function updateAllTexts() {
     const t = translations[currentLang];
     if (!t) return;
-    
-    // data-lang attribute bo'lgan elementlarni yangilash
     document.querySelectorAll('[data-lang]').forEach(el => {
         const key = el.getAttribute('data-lang');
         if (t[key]) {
-            if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-                el.placeholder = t[key];
-            } else if (el.tagName === 'SELECT') {
-                // Skip for now
-            } else {
-                el.innerHTML = t[key];
-            }
+            if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') el.placeholder = t[key];
+            else if (el.tagName !== 'SELECT') el.innerHTML = t[key];
         }
     });
-    
-    // Placeholderlarni alohida yangilash
     const searchInput = document.getElementById('searchInput');
-    if (searchInput && t.search) {
-        searchInput.placeholder = t.search;
-    }
-    
-    // About text
+    if (searchInput && t.search) searchInput.placeholder = t.search;
     const aboutText = document.getElementById('aboutText');
-    if (aboutText && t.aboutText) {
-        aboutText.innerHTML = t.aboutText;
-    }
-    
-    // Header logo
+    if (aboutText && t.aboutText) aboutText.innerHTML = t.aboutText;
     const logo = document.querySelector('.logo');
-    if (logo && t.brand) {
-        logo.innerHTML = t.brand;
-    }
-    
-    // Bottom nav matnlarini yangilash
+    if (logo && t.brand) logo.innerHTML = t.brand;
     const bottomNavSpans = document.querySelectorAll('.bottom-nav .nav-item span');
-    const navKeys = ['home', 'community', 'solutions', 'profile'];
-    bottomNavSpans.forEach((span, index) => {
-        if (t[navKeys[index]]) {
-            span.innerHTML = t[navKeys[index]];
-        }
-    });
-    
-    // Sahifa mazmunini yangilash (agar home da bo'lsa)
+    const navKeys = ['home', 'community', 'info', 'profile'];
+    bottomNavSpans.forEach((span, idx) => { if (t[navKeys[idx]]) span.innerHTML = t[navKeys[idx]]; });
     if (typeof currentPage !== 'undefined') {
-        if (currentPage === 'home') {
-            renderHomePage();
-        } else if (currentPage === 'solutions') {
-            renderSolutionsPage();
-        } else if (currentPage === 'community') {
-            renderCommunityPage();
-        }
+        if (currentPage === 'home') renderHomePage();
+        else if (currentPage === 'info') renderInfoPage();
+        else if (currentPage === 'community') renderCommunityPage();
     }
 }
 
-// Button click orqali til o'zgartirish
-function setLanguage(lang) {
-    changeLanguage(lang);
-}
-
-// Sahifa yuklanganda tilni o'rnatish
-document.addEventListener('DOMContentLoaded', () => {
-    changeLanguage(currentLang);
-});
+document.addEventListener('DOMContentLoaded', () => changeLanguage(currentLang));

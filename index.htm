@@ -2,12 +2,11 @@
 <html lang="ky">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title> Safe Media Official </title>
-    <meta name="google-site-verification" content="zI6MSnZyUDWrLD3U6yGx4A4N6HbWGcm_f01kh3ogNI0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>Safe Media Official</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Firebase SDK (CDN) -->
+    <!-- Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
@@ -18,7 +17,7 @@
         <div class="menu-icon" onclick="toggleSideMenu()">
             <i class="fas fa-bars"></i>
         </div>
-        <div class="logo">Safe Media</div>
+        <div class="logo" data-lang="brand">Safe Media</div>
         <div class="theme-icons">
             <i class="fas fa-moon" onclick="setTheme('dark')"></i>
             <i class="fas fa-sun" onclick="setTheme('light')"></i>
@@ -26,6 +25,7 @@
         </div>
     </header>
 
+    <!-- SIDE MENU -->
     <div id="sideDrawer" class="side-drawer">
         <div class="drawer-header">
             <h3>Safe Media</h3>
@@ -33,87 +33,98 @@
         </div>
         <div class="search-box">
             <i class="fas fa-search"></i>
-            <input type="text" id="searchInput" placeholder="Издөө / Поиск..." onkeyup="searchPosts()">
+            <input type="text" id="searchInput" data-lang="search" placeholder="Издөө...">
         </div>
+
         <div class="drawer-section">
-            <h4><i class="fas fa-mobile-alt"></i> Safe Media Apps</h4>
+            <h4><i class="fas fa-mobile-alt"></i> <span data-lang="ourApps">Safe Media Apps</span></h4>
             <ul>
-                <li><a href="#">Habit Tracker Pro</a></li>
-                <li><a href="#">Pravila Test</a></li>
-                <li><a href="#">Safe Media Wallet</a></li>
+                <li><a href="habittracer.htm"><i class="fas fa-chart-line"></i> <span data-lang="habitTracker">Habit Tracker Pro</span></a></li>
+                <li><a href="privaacy.htm"><i class="fas fa-lock"></i> <span data-lang="privacyPolicy">Privacy Policy</span></a></li>
+                <li><a href="#"><i class="fas fa-wallet"></i> <span data-lang="safeWallet">Safe Media Wallet</span></a></li>
             </ul>
         </div>
+
         <div class="drawer-section">
-            <h4><i class="fas fa-language"></i> Тил / Language</h4>
-            <select id="langSelect" onchange="changeLanguage()">
-                <option value="ky">Кыргызча</option>
-                <option value="en">English</option>
-                <option value="ru">Русский</option>
-                <option value="tr">Türkçe</option>
-                <option value="ar">العربية</option>
+            <h4><i class="fas fa-language"></i> <span data-lang="language">Тил / Language</span></h4>
+            <select id="langSelect" onchange="changeLanguage(this.value)">
+                <option value="ky">🇰🇬 Кыргызча</option>
+                <option value="en">🇬🇧 English</option>
+                <option value="ru">🇷🇺 Русский</option>
+                <option value="tr">🇹🇷 Türkçe</option>
+                <option value="ar">🇸🇦 العربية</option>
             </select>
         </div>
+
         <div class="drawer-section">
-            <h4><i class="fas fa-info-circle"></i> Биз жөнүндө</h4>
-            <p id="aboutText">Safe Media - дин, тарбия жана технология</p>
+            <h4><i class="fas fa-info-circle"></i> <span data-lang="about">Биз жөнүндө</span></h4>
+            <p id="aboutText" data-lang="aboutText">Safe Media - дин, тарбия жана технология</p>
+        </div>
+
+        <div class="drawer-section">
+            <h4><i class="fas fa-shield-alt"></i> Құпиялық</h4>
+            <ul>
+                <li><a href="privaacy.htm"><i class="fas fa-lock"></i> Privacy Policy</a></li>
+            </ul>
         </div>
     </div>
-    <div class="drawer-section">
-    <h4><i class="fas fa-shield-alt"></i> Құпиялық</h4>
-    <ul>
-        <li><a href="privacy.htm"><i class="fas fa-lock"></i> Privacy Policy</a></li>
-    </ul>
-    </div>
+
+    <!-- MAIN CONTENT -->
     <main class="main-content" id="mainContent">
         <div id="postsContainer" class="posts-container">
             <div class="loading">Жүктөлүүдө...</div>
         </div>
     </main>
 
+    <!-- BOTTOM NAVIGATION (4 ta: Home, Community, Info, Profile) -->
     <nav class="bottom-nav" id="bottomNav">
         <div class="nav-item active" data-page="home">
             <i class="fas fa-home"></i>
-            <span>Башкы</span>
+            <span data-lang="home">Башкы</span>
         </div>
         <div class="nav-item" data-page="community">
             <i class="fas fa-users"></i>
-            <span>Жамият</span>
+            <span data-lang="community">Жамият</span>
         </div>
-        <div class="nav-item" data-page="solutions">
-            <i class="fas fa-lightbulb"></i>
-            <span>Чечим</span>
+        <div class="nav-item" data-page="info">
+            <i class="fas fa-info-circle"></i>
+            <span data-lang="info">Маалымат</span>
         </div>
         <div class="nav-item" data-page="profile">
             <i class="fas fa-user"></i>
-            <span>Профиль</span>
+            <span data-lang="profile">Профиль</span>
         </div>
     </nav>
 
+    <!-- LOGIN MODAL -->
     <div id="loginModal" class="modal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeLoginModal()">&times;</span>
-            <h3>Кирүү / Login</h3>
-            <p id="loginStatus">Google аркылуу кириңиз</p>
-            <button id="googleLoginBtn" class="google-btn"><i class="fab fa-google"></i> Google менен кирүү</button>
+            <h3 data-lang="loginRequired">Кирүү керек</h3>
+            <p id="loginStatus" data-lang="loginDesc">Google аркылуу кириңиз</p>
+            <button id="googleLoginBtn" class="google-btn"><i class="fab fa-google"></i> <span data-lang="loginWithGoogle">Google менен кирүү</span></button>
         </div>
     </div>
 
+    <!-- ADMIN MODAL -->
     <div id="adminModal" class="modal">
         <div class="modal-content admin-modal">
             <span class="close-modal" onclick="closeAdminModal()">&times;</span>
-            <h3>Жаңы пост кошуу</h3>
-            <input type="text" id="postTitle" placeholder="Сарлавҳа">
-            <textarea id="postContent" rows="5" placeholder="Мазмуну"></textarea>
-            <input type="text" id="postImage" placeholder="Сүрөт URL">
+            <h3 data-lang="addNewPost">Жаңы пост кошуу</h3>
+            <input type="text" id="postTitle" data-lang="postTitle" placeholder="Сарлавҳа">
+            <textarea id="postContent" rows="5" data-lang="postContent" placeholder="Мазмуну"></textarea>
+            <input type="text" id="postImage" data-lang="postImage" placeholder="Сүрөт URL">
             <select id="postCategory">
-                <option value="home">Башкы бет</option>
-                <option value="community">Жамият</option>
-                <option value="solutions">Чечимдер</option>
+                <option value="home" data-lang="home">Башкы</option>
+                <option value="community" data-lang="community">Жамият</option>
+                <option value="info" data-lang="info">Маалымат</option>
             </select>
-            <button id="submitPostBtn" class="submit-btn">Постту жарыялоо</button>
+            <button id="submitPostBtn" class="submit-btn"><span data-lang="publish">Постту жарыялоо</span></button>
         </div>
     </div>
 
     <script src="firebase-config.js"></script>
+    <script src="languages.js"></script>
     <script src="script.js"></script>
 </body>
+</html>
