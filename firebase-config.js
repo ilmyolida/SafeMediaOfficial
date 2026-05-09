@@ -10,5 +10,5 @@ if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 const auth = firebase.auth();
 const provider = new firebase.auth.GoogleAuthProvider();
-const storage = firebase.storage(); // profil surati uchun
-const ADMIN_EMAILS = ["ilmyolida77@gmail.com", "safemediaosupport@gmail.com"];
+const ADMIN_EMAILS = ["ilmyolida77@gmail.com", "safemediaosupport@gmail.com"]; // ikkala admin
+window.ADMIN_EMAILS = ADMIN_EMAILS; // global qilish
